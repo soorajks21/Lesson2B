@@ -4,7 +4,8 @@
   // Game Variables
   let canvas = document.getElementById("canvas");
   let stage:createjs.Stage;
-  let helloLabel: createjs.Text;
+  let helloLabel: objects.Label;
+  let clickMeButton: createjs.Bitmap;
 
   function Init():void {
     console.log("Initialization Started...");
@@ -22,19 +23,25 @@
   }
 
   function Update():void {
-    helloLabel.rotation -= 5;
+   // helloLabel.rotation -= 5;
     stage.update(); // redraws the stage
   }
 
   function Main():void {
     console.log("Game Started...");
 
-    helloLabel = new createjs.Text("Daa Bye, World!", "40px Consolas", "#000000");
-    helloLabel.x = 100;
-    helloLabel.y = 100;
+    helloLabel = new objects.Label("Hello Bye, World!", "40px", "Consolas", "#000000",320,240,true);
+   
 
     stage.addChild(helloLabel);
 
+    clickMeButton = new createjs.Bitmap("/Assets/images/click-me-button.png");
+    clickMeButton.regX = clickMeButton.getBounds().width * 0.5;
+    clickMeButton.regY = clickMeButton.getBounds().height * 0.5;
+
+    clickMeButton.x = 320;
+    clickMeButton.y = 340;
+    stage.addChild(clickMeButton);
   }
 
   window.onload = Init;
