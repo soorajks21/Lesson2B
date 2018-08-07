@@ -5,7 +5,7 @@
   let canvas = document.getElementById("canvas");
   let stage:createjs.Stage;
   let helloLabel: objects.Label;
-  let clickMeButton: createjs.Bitmap;
+  let clickMeButton: objects.Button;
 
   function Init():void {
     console.log("Initialization Started...");
@@ -28,14 +28,7 @@
     stage.update(); // redraws the stage
   }
 
-  function clickMeButtonMouseOver(): void{
-    clickMeButton.alpha = 0.7;
-
-  }
-
-  function clickMeButtonMouseOut():void{
-    clickMeButton.alpha = 1.0;
-  }
+  
 
 function clickMeButtonMouseClick():void{
   helloLabel.text = "Clicked";
@@ -50,17 +43,15 @@ function clickMeButtonMouseClick():void{
 
     stage.addChild(helloLabel);
 
-    clickMeButton = new createjs.Bitmap("/Assets/images/click-me-button.png");
+    clickMeButton = new objects.Button("/Assets/images/click-me-button.png",320,400);
     clickMeButton.regX = clickMeButton.getBounds().width * 0.5;
     clickMeButton.regY = clickMeButton.getBounds().height * 0.5;
 
-    clickMeButton.x = 320;
-    clickMeButton.y = 400;
+  
     stage.addChild(clickMeButton);
 
-    clickMeButton.on("mouseover",clickMeButtonMouseOver);
-    clickMeButton.on("mouseover",clickMeButtonMouseOut);
-    clickMeButton.on("mouseover",clickMeButtonMouseClick);
+   
+    clickMeButton.on("click",clickMeButtonMouseClick);
 
 
   }
