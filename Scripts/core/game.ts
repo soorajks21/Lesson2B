@@ -29,7 +29,7 @@
   function Main():void {
     console.log("Game Started...");
 
-    helloLabel = new createjs.Text("Hello, World!", "40px Consolas", "#000000");
+    helloLabel = new createjs.Text("Daa Bye, World!", "40px Consolas", "#000000");
     helloLabel.x = 100;
     helloLabel.y = 100;
 
